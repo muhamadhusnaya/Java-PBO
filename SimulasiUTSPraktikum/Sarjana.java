@@ -11,34 +11,40 @@ public class Sarjana extends Murid {
         return ipk;
     }
 
-    public void Sarjana(){}
+    public Sarjana() {}
 
-    public void Sarjana(String nama, String alamat, int noInduk, double ipk) {
-        super.Murid(nama, alamat, noInduk);
+    public Sarjana(String nama, String alamat, int noInduk, double ipk) {
+        setNama(nama);
+        setAlamat(alamat);
+        setNoInduk(noInduk);
         setIpk(ipk);
     }
 
     public void reset(String nama, String alamat, int noInduk, double ipk) {
-        super.Murid(nama, alamat, noInduk);
+        setNama(nama);
+        setAlamat(alamat);
+        setNoInduk(noInduk);
         setIpk(ipk);
     }
 
-    public void predikat(double ipk){
-        if (ipk >= 3.5) {
-            System.out.println("Predikat: Sangat Memuaskan");
-        } else if (ipk >= 3.0) {
-            System.out.println("Predikat: Memuaskan");
-        } else if (ipk >= 2.5) {
-            System.out.println("Predikat: Cukup");
-        } else if (ipk >= 2.0) {
-            System.out.println("Predikat: Kurang");
+    public String predikat(double ipk) {
+        String predikat;
+        if(ipk >= 2.0 && ipk <= 2.75) {
+            predikat = "Memuaskan";
+        } else if(ipk >= 2.76 && ipk <= 3.5) {
+            predikat = "Sangat Memuaskan";
+        } else if(ipk >= 3.51 && ipk <= 4.0) {
+            predikat = "Dengan Pujian";
         } else {
-            System.out.println("Predikat: Sangat Kurang");
+            predikat = "-";
         }
+
+        return predikat;
     }
 
     public void cetak() {
         super.cetak();
-        System.out.println("IPK: " + ipk);
+        System.out.println("IPK         : " + ipk);
+        System.out.println("Predikat    : " + predikat(ipk));
     }
 }

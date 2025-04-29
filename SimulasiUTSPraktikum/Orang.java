@@ -17,10 +17,10 @@ public class Orang {
         return alamat;
     }
 
-    public Orang(){}
+    public Orang() {}
 
     //Overload
-    public void Orang(String namaBaru, String alamatBaru){
+    public Orang(String namaBaru, String alamatBaru){
         setNama(namaBaru);
         setAlamat(alamatBaru);
     }

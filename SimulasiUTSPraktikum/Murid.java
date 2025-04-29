@@ -10,10 +10,11 @@ public class Murid extends Orang {
         return noInduk;
     }
 
-    public void Murid(){}
+    public Murid() {}
 
-    public void Murid(String nama, String alamat, int noInduk){
-        Orang(nama, alamat);
+    public Murid(String nama, String alamat, int noInduk){
+        setNama(nama);
+        setAlamat(alamat);
         setNoInduk(noInduk);
     }
 
