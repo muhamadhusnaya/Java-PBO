@@ -12,6 +12,7 @@ public class ObatView extends JFrame {
     public JTextField tfHarga = new JTextField();
     public JButton btnTambah = new JButton("Tambah Obat");
     public JButton btnHapus = new JButton("Hapus Obat");
+    public JButton btnUpdate = new JButton("Update Obat");
 
     public JTable tableObat;
     public DefaultTableModel tableModel;
@@ -39,6 +40,8 @@ public class ObatView extends JFrame {
 
         btnTambah.setBounds(300, 20, 120, 25);
         btnHapus.setBounds(300, 60, 120, 25);
+        btnUpdate.setBounds(300, 100, 120, 25);
+        
 
         // Inisialisasi tabel
         tableModel = new DefaultTableModel(new String[]{"Kode Obat", "Nama Obat", "Harga Obat"}, 0);
@@ -55,6 +58,7 @@ public class ObatView extends JFrame {
         add(tfHarga);
         add(btnTambah);
         add(btnHapus);
+        add(btnUpdate);
         add(scrollPane);
     }
 }

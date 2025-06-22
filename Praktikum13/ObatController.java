@@ -28,7 +28,15 @@ public class ObatController {
                 hapusObat();
             }
         });
+
+        this.view.btnUpdate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                updateObat();
+            }
+        });
     }
+    
 
     // Fungsi untuk menambahkan data obat
     private void tambahObat() {
@@ -67,4 +75,36 @@ public class ObatController {
             JOptionPane.showMessageDialog(view, "Pilih obat yang ingin dihapus.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    private void updateObat() {
+        int selectedRow = view.tableObat.getSelectedRow();
+        if (selectedRow != -1) {
+            try {
+                String kode = view.tfKode.getText();
+                String nama = view.tfNama.getText();
+                double harga = Double.parseDouble(view.tfHarga.getText());
+
+                // Update ke dalam model data
+                Obat updatedObat = new Obat(kode, nama, harga);
+                daftarObat.set(selectedRow, updatedObat);
+
+                // Update ke tabel
+                view.tableModel.setValueAt(kode, selectedRow, 0);
+                view.tableModel.setValueAt(nama, selectedRow, 1);
+                view.tableModel.setValueAt(harga, selectedRow, 2);
+
+                JOptionPane.showMessageDialog(view, "Data berhasil di-update.");
+
+                // Kosongkan input
+                view.tfKode.setText("");
+                view.tfNama.setText("");
+                view.tfHarga.setText("");
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(view, "Harga harus berupa angka.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(view, "Pilih baris data yang ingin di-update.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
 }
